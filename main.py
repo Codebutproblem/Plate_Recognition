@@ -8,7 +8,7 @@ from image_processing import process_image
 license_plate_detector = YOLO('./train/weights/best.pt')
 
 # load file
-file_name = "plate8.jpg"
+file_name = "plate1.jpg"
 
 if file_name.lower().endswith((".jpg", ".jpeg", ".png")):
     img = cv2.imread(os.path.join("input", file_name))
@@ -18,8 +18,6 @@ if file_name.lower().endswith((".jpg", ".jpeg", ".png")):
         license_plate_crop = img[int(y1):int(y2), int(x1):int(x2), :]
 
         processed_license_plate = process_image(license_plate_crop)
-        cv2.imshow("License Plate", processed_license_plate)
-        cv2.waitKey(0)
 
         license_plate_text = read_license_plate(processed_license_plate)
         cv2.rectangle(img, (int(x1), int(y1)), (int(x2), int(y2)), color = (0,0,225), thickness = 2)

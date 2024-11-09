@@ -11,11 +11,7 @@ license_plate_chars = [
 ]
 
 def format_license_plate(license_plate_text):
-    s = ''.join(char for char in license_plate_text if char in license_plate_chars)
-    print(s)
-    if len(s) < 7 or len(s) > 10 or not s[0].isdigit() or not s[1].isdigit():
-        return "Unknown"
-    return s
+    return ''.join(char for char in license_plate_text if char in license_plate_chars)
 
 def read_license_plate(license_plate_crop):
 
